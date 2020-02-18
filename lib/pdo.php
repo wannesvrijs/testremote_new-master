@@ -1,12 +1,13 @@
 <?php
 function GetConnection()
 {
-    require_once "passwd.php";
-    $arr_connection = GetConnectionData();
+    require_once "autoload.php";
 
-    $dbdsn = $arr_connection['dbdsn'];
-    $dbuser = $arr_connection['dbuser'];
-    $dbpasswd = $arr_connection['dbpasswd'];
+    global $configuration;
+
+    $dbdsn = $configuration['dbdsn'];
+    $dbuser = $configuration['dbuser'];
+    $dbpasswd = $configuration['dbpasswd'];
 
 
     $pdo = new PDO($dbdsn, $dbuser, $dbpasswd);
