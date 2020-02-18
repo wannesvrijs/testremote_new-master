@@ -1,4 +1,5 @@
 <?php
+"Test";
 require_once "lib/autoload.php";
 
 $css = array( "style.css");
