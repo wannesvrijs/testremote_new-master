@@ -5,12 +5,16 @@ ini_set("display_startup_errors", 1);
 
 require_once "lib/autoload.php";
 
-$container = new Container($configuration);
+
+$cityLoader = $container->getCityLoader();
+$cities = $cityLoader->getCities();
+
+$MS->ShowMessages();
+
 
 $css = array( "style.css");
 BasicHead( $css );
 
-$MS->ShowMessages();
 ?>
 <body>
 
@@ -25,8 +29,6 @@ $MS->ShowMessages();
     <div class="row">
 
         <?php
-        $cityLoader = new CityLoader();
-        $cities = $cityLoader->Load();
 
         $template = LoadTemplate("steden");
         print ReplaceCities( $cities, $template);

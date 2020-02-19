@@ -85,6 +85,7 @@ function ReplaceCities( $cities, $template_html )
 {
     $returnval = "";
 
+
     foreach ( $cities as $city )
     {
         $content = $template_html;

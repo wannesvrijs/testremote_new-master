@@ -1,13 +1,13 @@
 <?php
 
-class MessageService
+class messageService
 {
-    public function AddMessage( $msg, $type = "info" )
+    public function addMessage( $msg, $type = "info" )
     {
         $_SESSION["$type"][] = $msg ;
     }
 
-    public function ShowMessages()
+    public function showMessages()
     {
         if ( ! $_SESSION["head_printed"] ) BasicHead();
 
