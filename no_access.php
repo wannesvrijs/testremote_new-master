@@ -3,7 +3,7 @@ $no_access = true;
 require_once "lib/autoload.php";
 
 $css = array( "style.css");
-BasicHead( $css );
+$opmaakService->BasicHead( $css );
 
 ?>
 <body>
@@ -16,7 +16,7 @@ BasicHead( $css );
 <div class="container">
 
         <?php
-        print LoadTemplate("no_access");
+        print $opmaakService->LoadTemplate("no_access");
         ?>
 
 </div>

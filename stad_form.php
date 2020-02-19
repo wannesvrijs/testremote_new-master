@@ -2,7 +2,7 @@
 require_once "lib/autoload.php";
 
 $css = array( "style.css" );
-BasicHead( $css );
+$opmaakService->BasicHead( $css );
 ?>
 <body>
 
@@ -18,8 +18,8 @@ BasicHead( $css );
         $cityLoader = $container->getCityLoader();
         $city = $cityLoader->findOneById($id = $_GET['id']);
 
-        $template = LoadTemplate("stad_form");
-        print ReplaceCities( $city, $template);
+        $template = $opmaakService->LoadTemplate("stad_form");
+        print $opmaakService->ReplaceCities( $city, $template);
         ?>
 
     </div>

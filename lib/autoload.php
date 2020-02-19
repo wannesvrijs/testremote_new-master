@@ -10,6 +10,8 @@ require_once $_root_folder . "/Model/User.php";
 require_once $_root_folder . "/Service/Container.php";
 require_once $_root_folder . "/Service/CityLoader.php";
 require_once $_root_folder . "/Service/MessageService.php";
+require_once $_root_folder . "/Service/UserService.php";
+require_once $_root_folder . "/Service/OpmaakService.php";
 
 session_start();
 $_SESSION["head_printed"] = false;
@@ -20,6 +22,7 @@ require_once $_root_folder . "/lib/view_functions.php";      //basic_head, load_
 
 $container = new Container($configuration);
 $MS = $container->getMessageService();
+$opmaakService = $container->getOpmaakService();
 
 
 //redirect naar NO ACCESS pagina als de gebruiker niet ingelogd is en niet naar

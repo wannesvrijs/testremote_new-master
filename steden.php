@@ -13,7 +13,7 @@ $MS->ShowMessages();
 
 
 $css = array( "style.css");
-BasicHead( $css );
+$opmaakService->BasicHead($css);
 
 ?>
 <body>
@@ -23,15 +23,15 @@ BasicHead( $css );
     <p>Tips voor citytrips voor vrolijke vakantiegangers!</p>
 </div>
 
-<?php PrintNavBar(); ?>
+<?php $opmaakService->PrintNavBar(); ?>
 
 <div class="container">
     <div class="row">
 
         <?php
 
-        $template = LoadTemplate("steden");
-        print ReplaceCities( $cities, $template);
+        $template = $opmaakService->LoadTemplate("steden");
+        print $opmaakService->ReplaceCities( $cities, $template);
         ?>
 
     </div>

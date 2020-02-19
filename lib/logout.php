@@ -2,8 +2,8 @@
 require_once "autoload.php";
 
 session_start();
-$User = new User();
-$User->LogLogoutUser();
+$userService = $container->getUserService();
+$userService->LogLogoutUser();
 
 session_destroy();
 unset($_SESSION);

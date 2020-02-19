@@ -1,9 +1,8 @@
 <?php
-"Test";
 require_once "lib/autoload.php";
 
 $css = array( "style.css");
-BasicHead($css);
+$opmaakService->BasicHead($css);
 $MS->ShowMessages();
 ?>
     <body>
@@ -11,7 +10,7 @@ $MS->ShowMessages();
     <div class="jumbotron text-center">
         <h1>Weekoverzicht</h1>
     </div>
-    <?php PrintNavBar(); ?>
+    <?php $opmaakService->PrintNavBar(); ?>
 
     <div class="container">
         <div class="row">

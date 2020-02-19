@@ -11,7 +11,7 @@ if ( isset($_SESSION['usr']) )
 }
 
 $css = array( "style.css");
-BasicHead( $css );
+$opmaakService->BasicHead( $css );
 
 $MS->ShowMessages();
 ?>
@@ -25,7 +25,7 @@ $MS->ShowMessages();
     <div class="row">
 
         <?php
-        print LoadTemplate("login");
+        print $opmaakService->LoadTemplate("login");
         ?>
 
     </div>

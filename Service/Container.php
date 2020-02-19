@@ -10,6 +10,10 @@ class Container
 
     private $messageService;
 
+    private $userService;
+
+    private $opmaakService;
+
     public function __construct(array $configuration)
     {
         $this->configuration = $configuration;
@@ -55,5 +59,30 @@ class Container
         }
 
         return $this->messageService;
+    }
+
+    /**
+     * @return UserService
+     */
+    public function getUserService (){
+
+        if ($this->userService == null){
+            $this->userService = new UserService();
+        }
+
+        return $this->userService;
+
+    }
+
+    /**
+     * @return OpmaakService
+     */
+    public function getOpmaakService()
+    {
+        if ($this->opmaakService === null) {
+            $this->opmaakService = new OpmaakService();
+        }
+
+        return $this->opmaakService;
     }
 }
