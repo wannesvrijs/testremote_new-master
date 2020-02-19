@@ -10,7 +10,6 @@ if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Register"
 {
     $userService = $container->getUserService();
     $userService->ValidatePostedUserData();
-    print "Hallo";
     $userService->RegisterUser();
 }
 ?>

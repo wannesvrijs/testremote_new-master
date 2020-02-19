@@ -18,7 +18,6 @@ $_SESSION["head_printed"] = false;
 
 require_once $_root_folder . "/lib/passwd.php";
 require_once $_root_folder . "/lib/pdo.php";                          //database functies
-require_once $_root_folder . "/lib/view_functions.php";      //basic_head, load_template, replacecontent...
 
 $container = new Container($configuration);
 $MS = $container->getMessageService();
