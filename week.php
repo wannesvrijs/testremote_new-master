@@ -4,6 +4,10 @@ require_once "lib/autoload.php";
 $css = array( "style.css");
 $opmaakService->BasicHead($css);
 $MS->ShowMessages();
+$taakLoader = $container->getTaakLoader();
+
+$MS->ShowMessages();
+
 ?>
     <body>
 
@@ -16,19 +20,9 @@ $MS->ShowMessages();
         <div class="row">
 
             <?php
-            $year = (isset($_GET['year'])) ? $_GET['year'] : date("Y");
-            $week = (isset($_GET['week'])) ? $_GET['week'] : date("W");
+            $year = $taakLoader->getSetYear();
+            $week = $taakLoader->getSetWeek();
 
-            if ($week > 52)
-            {
-                $year++;
-                $week = 1;
-            }
-            elseif ($week < 1)
-            {
-                $year--;
-                $week = 52;
-            }
 ?>
 
     <table class="table">
@@ -38,7 +32,7 @@ $MS->ShowMessages();
             <th>Taken</th>
         </tr>
             <?php
-            if( isset($_GET['week']) AND $week < 10 ) { $week = '0' . $week; }
+            if( isset($week) AND $week < 10 ) { $week = '0' . $week; }
 
             for( $day=1; $day <= 7; $day++ )
             {

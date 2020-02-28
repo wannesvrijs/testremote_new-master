@@ -54,16 +54,15 @@ class Container
     /**
      * @return TaakLoader
      */
-    public function getTakenLoader()
+    public function getTaakLoader()
     {
         if ($this->taakLoader === null) {
-            $this->taakLoader = new CityLoader($this->getPDO());
+            $this->taakLoader = new TaakLoader($this->getPDO());
         }
 
         return $this->taakLoader;
     }
-
-
+    
     /**
      * @return MessageService
      */

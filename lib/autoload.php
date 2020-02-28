@@ -5,10 +5,12 @@ $_root_folder = $_SERVER['DOCUMENT_ROOT'] . "$_application_folder";
 //load Models
 require_once $_root_folder . "/Model/City.php";
 require_once $_root_folder . "/Model/User.php";
+require_once $_root_folder . "/Model/Taak.php";
 
 //load Services
 require_once $_root_folder . "/Service/Container.php";
 require_once $_root_folder . "/Service/CityLoader.php";
+require_once $_root_folder . "/Service/TaakLoader.php";
 require_once $_root_folder . "/Service/MessageService.php";
 require_once $_root_folder . "/Service/UserService.php";
 require_once $_root_folder . "/Service/OpmaakService.php";

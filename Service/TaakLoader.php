@@ -2,6 +2,8 @@
 class TaakLoader
 {
     private $pdo;
+    private $week;
+    private $year;
 
     public function __construct(PDO $pdo)
     {
@@ -22,6 +24,35 @@ class TaakLoader
         }
 
         return $taken;
+    }
+
+
+    private function setRequestedTaakWeek()
+    {
+        $this->year = (isset($_GET['year'])) ? $_GET['year'] : date("Y");
+        $this->week = (isset($_GET['week'])) ? $_GET['week'] : date("W");
+
+        if ($this->week > 52)
+        {
+            $this->year++;
+            $this->week = 1;
+        }
+        elseif ($this->week < 1)
+        {
+            $this->year--;
+            $this->week = 52;
+        }
+    }
+
+    public function getSetYear()
+    {
+       $this->setRequestedTaakWeek();
+       return $this->year;
+    }
+    public function getSetWeek()
+    {
+        $this->setRequestedTaakWeek();
+        return $this->week;
     }
 
     /**
