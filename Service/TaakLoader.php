@@ -52,6 +52,7 @@ class TaakLoader
     public function getSetWeek()
     {
         $this->setRequestedTaakWeek();
+        if( isset($_GET['week']) AND $this->week < 10 ) { $this->week = '0' . $this->week; }
         return $this->week;
     }
 

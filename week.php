@@ -19,12 +19,6 @@ $MS->ShowMessages();
     <div class="container">
         <div class="row">
 
-            <?php
-            $year = $taakLoader->getSetYear();
-            $week = $taakLoader->getSetWeek();
-
-?>
-
     <table class="table">
         <tr>
             <th>Weekdag</th>
@@ -32,7 +26,9 @@ $MS->ShowMessages();
             <th>Taken</th>
         </tr>
             <?php
-            if( isset($week) AND $week < 10 ) { $week = '0' . $week; }
+
+            $year = $taakLoader->getSetYear();
+            $week = $taakLoader->getSetWeek();
 
             for( $day=1; $day <= 7; $day++ )
             {
