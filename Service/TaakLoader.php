@@ -60,13 +60,12 @@ class TaakLoader
      * @param $id
      * @return Taak[]
      */
-    public function findOneById($id)
+    public function findTakenByDate($datum)
     {
-        // taak wordt een array van 1 item zodat replacetaken algemeen gebruikt kan worden
-        $taak = array();
+        $taken = array();
 
-        $statement = $this->getPDO()->prepare('SELECT * FROM taak WHERE taa_id = :id');
-        $statement->execute(array('id' => $id));
+        $statement = $this->getPDO()->prepare('SELECT * FROM taak WHERE taa_datum = :datum');
+        $statement->execute(array('datum' => $datum));
         $taakArray = $statement->fetch(PDO::FETCH_ASSOC);
 
 
@@ -74,9 +73,9 @@ class TaakLoader
             return null;
         }
 
-        $taak[] = $this->createTaakFromData($taakArray);
+        $taken[] = $this->createTaakFromData($taakArray);
 
-        return $taak;
+        return $taken;
     }
 
     private function createTaakFromData(array $taakData)

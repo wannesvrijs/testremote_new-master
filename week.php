@@ -35,14 +35,15 @@ $MS->ShowMessages();
                 $d = strtotime($year . "W" . $week . $day);
                 $sqldate = date("Y-m-d", $d);
 
-                $sql = "SELECT taa_omschr FROM taak WHERE taa_datum = '".$sqldate."'" ;
-                $data = GetData($sql);
+                $data = $taakLoader->findTakenByDate($sqldate);
 
                 $taken = array();
-                foreach( $data as $row )
+
+                if(isset($data)) foreach( $data as $row )
                 {
-                    $taken[] = $row['taa_omschr'];
+                    $taken[] = $row->getOmschrijving();
                 }
+
                 $takenlijst = "<ul><li>" . implode( "</li><li>" , $taken ) . "</li></ul>";
 
                 echo "<tr>";
