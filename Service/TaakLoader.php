@@ -8,22 +8,7 @@ class TaakLoader
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
-    }
-
-    /**
-     * @return Taak[]
-     */
-    public function getTaken()
-    {
-        $taken = array();
-
-        $takenData = $this->queryForTaken();
-
-        foreach ($takenData as $taakData) {
-            $taken[] = $this->createTaakFromData($taakData);
-        }
-
-        return $taken;
+        $this->setRequestedTaakWeek();
     }
 
 
@@ -44,17 +29,6 @@ class TaakLoader
         }
 
         if( isset($_GET['week']) AND $this->week < 10 ) { $this->week = '0' . $this->week; }
-    }
-
-    public function getSetYear()
-    {
-       $this->setRequestedTaakWeek();
-       return $this->year;
-    }
-    public function getSetWeek()
-    {
-        $this->setRequestedTaakWeek();
-        return $this->week;
     }
 
     /**
@@ -80,7 +54,6 @@ class TaakLoader
     }
 
     public function getTableRow($day){
-        $this->setRequestedTaakWeek();
 
         $d = strtotime($this->year . "W" . $this->week . $day);
         $sqldate = date("Y-m-d", $d);
@@ -115,13 +88,14 @@ class TaakLoader
         return $taak;
     }
 
-
-
-
-
-
-
-
+    public function getSetYear()
+    {
+        return $this->year;
+    }
+    public function getSetWeek()
+    {
+        return $this->week;
+    }
 
     /**
      * @return PDO
