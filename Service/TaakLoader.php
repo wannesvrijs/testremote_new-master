@@ -42,6 +42,8 @@ class TaakLoader
             $this->year--;
             $this->week = 52;
         }
+
+        if( isset($_GET['week']) AND $this->week < 10 ) { $this->week = '0' . $this->week; }
     }
 
     public function getSetYear()
@@ -52,7 +54,6 @@ class TaakLoader
     public function getSetWeek()
     {
         $this->setRequestedTaakWeek();
-        if( isset($_GET['week']) AND $this->week < 10 ) { $this->week = '0' . $this->week; }
         return $this->week;
     }
 
@@ -78,6 +79,30 @@ class TaakLoader
         return $taken;
     }
 
+    public function getTableRow($day){
+        $this->setRequestedTaakWeek();
+
+        $d = strtotime($this->year . "W" . $this->week . $day);
+        $sqldate = date("Y-m-d", $d);
+
+        $data = $this->findTakenByDate($sqldate);
+
+        $taken = array();
+
+        if(isset($data)) foreach( $data as $row )
+        {
+            $taken[] = $row->getOmschrijving();
+        }
+
+        $takenlijst = "<ul><li>" . implode( "</li><li>" , $taken ) . "</li></ul>";
+
+        echo "<tr>";
+        echo "<td>" . date("l", $d). "</td>";
+        echo "<td>" . date("d/m/Y", $d). "</td>";
+        echo "<td>" . $takenlijst . "</td>";
+        echo "</tr>" ;
+    }
+
     private function createTaakFromData(array $taakData)
     {
 
@@ -89,6 +114,14 @@ class TaakLoader
 
         return $taak;
     }
+
+
+
+
+
+
+
+
 
     /**
      * @return PDO

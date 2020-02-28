@@ -27,33 +27,17 @@ $MS->ShowMessages();
         </tr>
             <?php
 
-            $year = $taakLoader->getSetYear();
-            $week = $taakLoader->getSetWeek();
 
             for( $day=1; $day <= 7; $day++ )
             {
-                $d = strtotime($year . "W" . $week . $day);
-                $sqldate = date("Y-m-d", $d);
-
-                $data = $taakLoader->findTakenByDate($sqldate);
-
-                $taken = array();
-
-                if(isset($data)) foreach( $data as $row )
-                {
-                    $taken[] = $row->getOmschrijving();
-                }
-
-                $takenlijst = "<ul><li>" . implode( "</li><li>" , $taken ) . "</li></ul>";
-
-                echo "<tr>";
-                echo "<td>" . date("l", $d). "</td>";
-                echo "<td>" . date("d/m/Y", $d). "</td>";
-                echo "<td>" . $takenlijst . "</td>";
-                echo "</tr>" ;
+                $tablerow = $taakLoader->getTableRow($day);
+                echo $tablerow;
             }
 
             echo "</table>";
+
+            $week = $taakLoader->getSetWeek();
+            $year = $taakLoader->getSetYear();
 
             $link_vorige = "week.php?week=" . ($week == 1 ? 52 : $week - 1 ) . "&year=" . ($week == 1 ? $year - 1 : $year);
             $link_volgende = "week.php?week=" . ($week == 52 ? 1 : $week + 1 ) . "&year=" . ($week == 52 ? $year + 1 : $year);
