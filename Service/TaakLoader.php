@@ -41,14 +41,16 @@ class TaakLoader
 
         $statement = $this->getPDO()->prepare('SELECT * FROM taak WHERE taa_datum = :datum');
         $statement->execute(array('datum' => $datum));
-        $taakArray = $statement->fetch(PDO::FETCH_ASSOC);
+        $taakArray = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
         if (!$taakArray) {
             return null;
         }
 
-        $taken[] = $this->createTaakFromData($taakArray);
+        foreach ($taakArray as $taak){
+            $taken[] = $this->createTaakFromData($taak);
+        }
 
         return $taken;
     }
