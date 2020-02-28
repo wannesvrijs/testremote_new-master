@@ -8,6 +8,8 @@ class Container
 
     private $cityLoader;
 
+    private $taakLoader;
+
     private $messageService;
 
     private $userService;
@@ -48,6 +50,19 @@ class Container
 
         return $this->cityLoader;
     }
+
+    /**
+     * @return TaakLoader
+     */
+    public function getTakenLoader()
+    {
+        if ($this->taakLoader === null) {
+            $this->taakLoader = new CityLoader($this->getPDO());
+        }
+
+        return $this->taakLoader;
+    }
+
 
     /**
      * @return MessageService

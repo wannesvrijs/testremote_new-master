@@ -26,7 +26,7 @@ class CityLoader
 
     /**
      * @param $id
-     * @return City
+     * @return City[]
      */
     public function findOneById($id)
     {
