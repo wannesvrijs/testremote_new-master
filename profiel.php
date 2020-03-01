@@ -25,7 +25,10 @@ $MS->ShowMessages();
 
         <div class="col-sm-5">
             <?php
-
+            $notintable = false;
+            $img_az_eid = null;
+            $img_pasfoto = null;
+            $img_vz_eid = null;
             //gebruikersgegevens ophalen uit databank
             $sql = "select * from users where usr_id=" . $_SESSION["usr"]->getId();
             $data = GetData($sql);

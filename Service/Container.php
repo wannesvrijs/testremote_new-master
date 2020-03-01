@@ -16,6 +16,8 @@ class Container
 
     private $opmaakService;
 
+    private $uploadService;
+
     private $saveService;
 
     public function __construct(array $configuration)
@@ -101,6 +103,20 @@ class Container
 
         return $this->opmaakService;
     }
+
+    /**
+     * @return UploadService
+     */
+    public function getUploadService()
+    {
+        if ($this->uploadService === null) {
+            $this->uploadService = new UploadService();
+        }
+
+        return $this->uploadService;
+    }
+
+
 
     /**
      * @return SaveService
