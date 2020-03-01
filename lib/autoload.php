@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 $_application_folder = "/testremote_new-master";
 $_root_folder = $_SERVER['DOCUMENT_ROOT'] . "$_application_folder";
 
@@ -14,6 +17,7 @@ require_once $_root_folder . "/Service/TaakLoader.php";
 require_once $_root_folder . "/Service/MessageService.php";
 require_once $_root_folder . "/Service/UserService.php";
 require_once $_root_folder . "/Service/OpmaakService.php";
+require_once $_root_folder . "/Service/SaveService.php";
 
 session_start();
 $_SESSION["head_printed"] = false;

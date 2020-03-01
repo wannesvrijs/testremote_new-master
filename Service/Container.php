@@ -16,6 +16,8 @@ class Container
 
     private $opmaakService;
 
+    private $saveService;
+
     public function __construct(array $configuration)
     {
         $this->configuration = $configuration;
@@ -99,4 +101,18 @@ class Container
 
         return $this->opmaakService;
     }
+
+    /**
+     * @return SaveService
+     */
+    public function getSaveService()
+    {
+        if ($this->saveService === null) {
+            $this->saveService = new SaveService();
+        }
+
+        return $this->saveService;
+    }
+
+
 }
