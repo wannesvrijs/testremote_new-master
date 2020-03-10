@@ -133,8 +133,12 @@ span.img_name {
 
 .detailButtons{
     width: 100%;
-    display: flex;
     justify-content: space-around;
     padding: 1em 0;
-    display: none;
+    display: flex;
+    opacity: 0;
+}
+
+.detailvissible{
+    opacity: 1!important;
 }

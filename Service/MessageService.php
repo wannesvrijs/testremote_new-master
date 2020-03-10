@@ -11,7 +11,6 @@ class messageService
     {
         global $container;
         $opmaakService = $container->getOpmaakService();
-        if ( ! $_SESSION["head_printed"] ) $opmaakService->BasicHead();
 
         //weergeven 2 soorten messages: errors en infos
         foreach( array("error", "info") as $type )

@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$_application_folder = "/schoolprojecten/testremote_new-master";
+$_application_folder = "/testremote_new-master";
 $_root_folder = $_SERVER['DOCUMENT_ROOT'] . "$_application_folder";
 
 //load Models
