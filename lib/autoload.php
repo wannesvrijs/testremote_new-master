@@ -17,7 +17,9 @@ require_once $_root_folder . "/Service/TaakLoader.php";
 require_once $_root_folder . "/Service/MessageService.php";
 require_once $_root_folder . "/Service/UserService.php";
 require_once $_root_folder . "/Service/OpmaakService.php";
-require_once $_root_folder . "/Service/UploadService.php";
+require_once $_root_folder . "/Service/AbstractUploadService.php";
+require_once $_root_folder . "/Service/UploadEid.php";
+require_once $_root_folder . "/Service/UploadImage.php";
 require_once $_root_folder . "/Service/SaveService.php";
 
 session_start();

@@ -16,7 +16,9 @@ class Container
 
     private $opmaakService;
 
-    private $uploadService;
+    private $uploadEid;
+
+    private $uploadImage;
 
     private $saveService;
 
@@ -105,17 +107,29 @@ class Container
     }
 
     /**
-     * @return UploadService
+     * @return UploadEid
      */
-    public function getUploadService()
+    public function getUploadEid()
     {
-        if ($this->uploadService === null) {
-            $this->uploadService = new UploadService();
+        if ($this->uploadEid === null) {
+            $this->uploadEid = new UploadEid();
         }
 
-        return $this->uploadService;
+        return $this->uploadEid;
     }
 
+
+    /**
+     * @return UploadImage
+     */
+    public function getUploadImage()
+    {
+        if ($this->uploadImage === null) {
+            $this->uploadImage = new UploadImage();
+        }
+
+        return $this->uploadImage;
+    }
 
 
     /**
