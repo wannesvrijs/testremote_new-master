@@ -19,4 +19,9 @@ class DetailEiffeltoren implements DetailInterface
         return 'Gustave Eiffel';
     }
 
+    public function getWikiLink()
+    {
+        return 'https://nl.wikipedia.org/wiki/Eiffeltoren';
+    }
+
 }

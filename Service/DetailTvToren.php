@@ -17,8 +17,14 @@ class DetailTvToren implements DetailInterface
     }
 
     public function getVisitors (){
+
         return 'Meer dan 1 miljoen';
 
     }
 
+
+    public function getWikiLink()
+    {
+        return 'https://nl.wikipedia.org/wiki/Fernsehturm';
+    }
 }

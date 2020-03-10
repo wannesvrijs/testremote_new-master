@@ -41,7 +41,8 @@ $opmaakService->BasicHead($css);
                 $detail = $container->getDetailBigBen();
                 print 'Hoogte: '.$detail->getHoogte().'<br>';
                 print 'Bouwjaar: '.$detail->getBouwjaar().'<br>';
-                print 'Inkomprijs: '.$detail->getInkom();
+                print 'Inkomprijs: '.$detail->getInkom().'<br>';
+                print '<a href="'.$detail->getWikiLink().'" target="_blank">Wiki</a>'
                 ?>
             </p>
             <p class="detail">
@@ -49,7 +50,8 @@ $opmaakService->BasicHead($css);
                 $detail = $container->getDetailEiffeltoren();
                 print 'Hoogte: '.$detail->getHoogte().'<br>';
                 print 'Bouwjaar: '.$detail->getBouwjaar().'<br>';
-                print 'Ontwerper: '.$detail->getDesigner();
+                print 'Ontwerper: '.$detail->getDesigner().'<br>';
+                print '<a href="'.$detail->getWikiLink().'" target="_blank">Wiki</a>'
                 ?>
             </p>
             <p class="detail">
@@ -57,7 +59,8 @@ $opmaakService->BasicHead($css);
                 $detail = $container->getDetailTvToren();
                 print 'Hoogte: '.$detail->getHoogte().'<br>';
                 print 'Bouwjaar: '.$detail->getBouwjaar().'<br>';
-                print 'Bezoekers/jaar: '.$detail->getVisitors();
+                print 'Bezoekers/jaar: '.$detail->getVisitors().'<br>';
+                print '<a href="'.$detail->getWikiLink().'" target="_blank">Wiki</a>'
                 ?>
             </p>
         </div>

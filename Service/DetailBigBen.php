@@ -18,4 +18,9 @@ class DetailBigBen implements DetailInterface
         return '15£';
     }
 
+    public function getWikiLink()
+    {
+        return 'https://nl.wikipedia.org/wiki/Big_Ben';
+    }
+
 }
