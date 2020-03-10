@@ -130,3 +130,11 @@ span.img_name {
 .img_city {
     margin-top: 15vh;
 }
+
+.detailButtons{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 0;
+    display: none;
+}

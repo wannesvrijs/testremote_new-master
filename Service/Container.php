@@ -22,6 +22,12 @@ class Container
 
     private $saveService;
 
+    private $detailEiffeltoren;
+
+    private $detailBigBen;
+
+    private $detailTvToren;
+
     public function __construct(array $configuration)
     {
         $this->configuration = $configuration;
@@ -143,6 +149,44 @@ class Container
 
         return $this->saveService;
     }
+
+    /**
+     * @return DetailEiffeltoren
+     */
+    public function getDetailEiffeltoren()
+    {
+        if ($this->detailEiffeltoren === null) {
+            $this->detailEiffeltoren = new DetailEiffeltoren();
+        }
+
+        return $this->detailEiffeltoren;
+    }
+
+    /**
+     * @return DetailBigBen
+     */
+    public function getDetailBigBen()
+    {
+        if ($this->detailBigBen === null) {
+            $this->detailBigBen = new DetailBigBen();
+        }
+
+        return $this->detailBigBen;
+    }
+
+    /**
+     * @return DetailTvToren
+     */
+    public function getDetailTvToren()
+    {
+        if ($this->detailTvToren === null) {
+            $this->detailTvToren = new DetailTvToren();
+        }
+
+        return $this->detailTvToren;
+    }
+
+
 
 
 }

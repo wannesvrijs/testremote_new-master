@@ -26,13 +26,41 @@ $opmaakService->BasicHead($css);
 <?php $opmaakService->PrintNavBar(); ?>
 
 <div class="container">
+
+    <button id="toonDetails">Toon Details</button>
     <div class="row">
 
         <?php
-
         $template = $opmaakService->LoadTemplate("steden");
         print $opmaakService->ReplaceCities( $cities, $template);
         ?>
+
+        <div class="detailButtons">
+            <p class="detail">
+                <?php
+                $detail = $container->getDetailBigBen();
+                print 'Hoogte: '.$detail->getHoogte().'<br>';
+                print 'Bouwjaar: '.$detail->getBouwjaar().'<br>';
+                print 'Inkomprijs: '.$detail->getInkom();
+                ?>
+            </p>
+            <p class="detail">
+                <?php
+                $detail = $container->getDetailEiffeltoren();
+                print 'Hoogte: '.$detail->getHoogte().'<br>';
+                print 'Bouwjaar: '.$detail->getBouwjaar().'<br>';
+                print 'Ontwerper: '.$detail->getDesigner();
+                ?>
+            </p>
+            <p class="detail">
+                <?php
+                $detail = $container->getDetailTvToren();
+                print 'Hoogte: '.$detail->getHoogte().'<br>';
+                print 'Bouwjaar: '.$detail->getBouwjaar().'<br>';
+                print 'Bezoekers/jaar: '.$detail->getVisitors();
+                ?>
+            </p>
+        </div>
 
     </div>
 </div>

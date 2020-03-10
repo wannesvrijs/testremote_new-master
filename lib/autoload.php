@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$_application_folder = "/testremote_new-master";
+$_application_folder = "/schoolprojecten/testremote_new-master";
 $_root_folder = $_SERVER['DOCUMENT_ROOT'] . "$_application_folder";
 
 //load Models
@@ -21,6 +21,10 @@ require_once $_root_folder . "/Service/AbstractUploadService.php";
 require_once $_root_folder . "/Service/UploadEid.php";
 require_once $_root_folder . "/Service/UploadImage.php";
 require_once $_root_folder . "/Service/SaveService.php";
+require_once $_root_folder . "/Service/DetailInterface.php";
+require_once $_root_folder . "/Service/DetailTvToren.php";
+require_once $_root_folder . "/Service/DetailBigBen.php";
+require_once $_root_folder . "/Service/DetailEiffeltoren.php";
 
 session_start();
 $_SESSION["head_printed"] = false;
